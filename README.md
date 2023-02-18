@@ -26,12 +26,16 @@ git clone https://github.com/orhanerday/ChatGPT.git
 ```sh
 cd ChatGPT
 ```
-* #### Install composer
+* #### Install OrhanErday/OpenAI
 ```sh
-composer update
+composer require orhanerday/open-ai
 ```
 
 * #### Set your OpenAI API key as the `$open_ai_key` variable in `event-stream.php`
+```php
+$open_ai_key = ""; 
+```
+
 * #### Start the PHP built-in web server
 ```sh
 php -S localhost:8000 -t .
