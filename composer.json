@@ -1,0 +1,7 @@
+{
+    "require": {
+        "orhanerday/open-ai": "^3.5",
+      "ext-json": "*",
+      "ext-sqlite3": "*"
+    }
+}
