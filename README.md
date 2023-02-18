@@ -8,7 +8,7 @@ This project is a ChatGPT clone that allows users to chat with an AI language mo
 
 https://user-images.githubusercontent.com/22305274/219877050-e5237734-4635-46f8-bf49-71a26356e0db.mp4
 
-# Important
+# Important Notice
 This project was created to highlight the [Stream Example](https://github.com/orhanerday/open-ai#stream-example) feature of [OpenAI GPT-3 Api Client in PHP by Orhan Erday](https://github.com/orhanerday/open-ai), please don't have too high expectations about the project.
 
 ## Donation
@@ -24,7 +24,8 @@ Before running this project, you should have the following:
 * An OpenAI API key (which should be set to the $open_ai_key variable in event-stream.php)
 Getting Started
 
-## To get started with this project, follow these steps:
+## Get Started
+
 ### Enable sqlite3
 
 * Open the php.ini file. This file is usually located in the PHP installation directory.
