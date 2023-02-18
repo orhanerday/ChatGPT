@@ -19,32 +19,39 @@ Before running this project, you should have the following:
 Getting Started
 
 ## To get started with this project, follow these steps:
+### Enable sqlite3
 
-* #### Clone this repository to your local machine
+* Open the php.ini file. This file is usually located in the PHP installation directory.
+* Find the following line: ;extension=php_sqlite3.dll
+* Remove the semicolon at the beginning of the line to uncomment it.
+* Save the file.
+* Restart the web server.
+
+* ### Clone this repository to your local machine
 ```sh
 git clone https://github.com/orhanerday/ChatGPT.git
 ```
-* #### Navigate to the project directory
+* ### Navigate to the project directory
 ```sh
 cd ChatGPT
 ```
-* #### Install OrhanErday/OpenAI
+* ### Install OrhanErday/OpenAI
 ```sh
 composer require orhanerday/open-ai
 ```
 
-* #### Set your OpenAI API key as the `$open_ai_key` variable in `event-stream.php`
+* ### Set your OpenAI API key as the `$open_ai_key` variable in `event-stream.php`
 ```php
 $open_ai_key = ""; 
 ```
 
-* #### Start the PHP built-in web server
+* ### Start the PHP built-in web server
 ```sh
 php -S localhost:8000 -t .
 ```
-* #### Open your web browser and go to http://localhost:8000
+* ### Open your web browser and go to http://localhost:8000
 
-* #### You should now see the ChatGPT clone interface, where you can chat with the OpenAI language model.
+* ### You should now see the ChatGPT clone interface, where you can chat with the OpenAI language model.
 
 ## Chat History
 This project saves chat history using cookies by default. If you want to change this to use authentication instead, you can modify the code in index.php to save chat history in a database or other storage mechanism.
