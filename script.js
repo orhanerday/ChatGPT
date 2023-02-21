@@ -46,7 +46,7 @@ function deleteChatHistory(userId) {
 const deleteButton = document.querySelector('#delete-button');
 deleteButton.addEventListener('click', event => {
     event.preventDefault();
-    deleteChatHistory('3e78d1fc-15a9-466f-b08d-540e72074a0a');
+    deleteChatHistory(USER_ID);
 });
 
 msgerForm.addEventListener("submit", event => {
@@ -113,7 +113,7 @@ function sendMsg(msg) {
                     msgerSendBtn.disabled = false
                     eventSource.close();
                 } else {
-                    div.innerHTML += JSON.parse(e.data).choices[0].text;
+                    div.innerHTML += JSON.parse(e.data).choices[0].text.replace(/(?:\r\n|\r|\n)/g, '<br>');
                 }
             };
             eventSource.onerror = function (e) {

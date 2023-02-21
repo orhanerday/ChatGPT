@@ -51,7 +51,7 @@ header('Content-type: text/event-stream');
 header('Cache-Control: no-cache');
 $txt = "";
 $open_ai->completion($opts, function ($curl_info, $data) use (&$txt) {
-    echo $data . "<br><br>";
+    echo $data;
     $clean = str_replace("data: ", "", $data);
     $arr = json_decode($clean, true);
     if ($data != "data: [DONE]\n\n" and $arr["choices"][0]["text"] != null) {
