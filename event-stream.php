@@ -5,7 +5,7 @@ require __DIR__ . '/vendor/autoload.php'; // remove this line if you use a PHP F
 use Orhanerday\OpenAi\OpenAi;
 
 
-$open_ai_key = "";
+$open_ai_key = getenv('OPENAI_API_KEY');
 $open_ai = new OpenAi($open_ai_key);
 // Open the SQLite database
 $db = new SQLite3('db.sqlite');
