@@ -60,7 +60,7 @@ docker pull orhan55555/chatgpt
 
 #### Run the app
 ```shell
-docker run -p 8000:8000 -e OPENAI_API_KEY=sk-o7hL4nCDcjw chatgpt
+docker run -p 8000:8000 -e OPENAI_API_KEY=sk-o7hL4nCDcjw orhan55555/chatgpt
 ```
 #### Open your web browser and go
 
