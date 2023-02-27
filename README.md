@@ -32,7 +32,7 @@ git clone https://github.com/orhanerday/ChatGPT.git
 
 #### Build the image
 ```shell
-docker build -t dalle-examples .
+docker build -t chatgpt .
 ```
 <hr>
 
