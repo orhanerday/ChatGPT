@@ -64,14 +64,11 @@ $open_ai->completion($opts, function ($curl_info, $data) use (&$txt) {
 });
 
 
-// Prepare the INSERT statement
-$stmt = $db->prepare('INSERT INTO main.chat_history (user_id, human, ai) VALUES (:user_id, :human, :ai)');
-
-// Bind the parameters and execute the statement for each row of data
-$row = ['user_id' => $id, 'human' => $msg, 'ai' => $txt];
-
-$stmt->bindValue(':user_id', $row['user_id']);
-$stmt->bindValue(':human', $row['human']);
+// Prepare the UPDATE statement
+$stmt = $db->prepare('UPDATE main.chat_history SET ai = :ai WHERE id = :id');
+$row = ['id' => $chat_history_id,'ai' => $txt];
+// Bind the parameters and execute the statement
+$stmt->bindValue(':id', $row['id']);
 $stmt->bindValue(':ai', $row['ai']);
 $stmt->execute();
 
