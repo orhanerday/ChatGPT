@@ -25,16 +25,30 @@ This project was created to highlight the [Stream Example](https://github.com/or
 ## Using Docker
 <hr>
 
+> #### Method I
+
 #### Clone this repository to your local machine
 ```sh
 git clone https://github.com/orhanerday/ChatGPT.git
 ```
-
+#### Navigate to the project directory
+```sh
+cd ChatGPT
+```
 #### Build the image
 ```shell
 docker build -t chatgpt .
 ```
+#### Run the app
+```shell
+docker run -p 8000:8000 -e OPENAI_API_KEY=sk-o7hL4nCDcjw chatgpt
+```
+#### Open your web browser and go
+
+http://localhost:8000
 <hr>
+
+> #### Method II
 
 ### *Or* you can use docker hub without cloning or building;  
 
@@ -48,7 +62,10 @@ docker pull orhan55555/chatgpt
 ```shell
 docker run -p 8000:8000 -e OPENAI_API_KEY=sk-o7hL4nCDcjw chatgpt
 ```
+#### Open your web browser and go
 
+http://localhost:8000
+<hr>
 
 ## Prerequisites
 Before running this project, you should have the following:
