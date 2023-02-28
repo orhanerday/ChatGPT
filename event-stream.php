@@ -51,12 +51,18 @@ header('Content-type: text/event-stream');
 header('Cache-Control: no-cache');
 $txt = "";
 $open_ai->completion($opts, function ($curl_info, $data) use (&$txt) {
-    echo $data;
-    $clean = str_replace("data: ", "", $data);
-    $arr = json_decode($clean, true);
-    if ($data != "data: [DONE]\n\n" and $arr["choices"][0]["text"] != null) {
-        $txt .= $arr["choices"][0]["text"];
+    if ($obj = json_decode($data) and $obj->error->message != "") {
+        error_log(json_encode($obj->error->message));
+    } else {
+        echo $data;
+        error_log($data);
+        $clean = str_replace("data: ", "", $data);
+        $arr = json_decode($clean, true);
+        if ($data != "data: [DONE]\n\n" and $arr["choices"][0]["text"] != null) {
+            $txt .= $arr["choices"][0]["text"];
+        }
     }
+
     echo PHP_EOL;
     ob_flush();
     flush();
@@ -66,7 +72,7 @@ $open_ai->completion($opts, function ($curl_info, $data) use (&$txt) {
 
 // Prepare the UPDATE statement
 $stmt = $db->prepare('UPDATE main.chat_history SET ai = :ai WHERE id = :id');
-$row = ['id' => $chat_history_id,'ai' => $txt];
+$row = ['id' => $chat_history_id, 'ai' => $txt];
 // Bind the parameters and execute the statement
 $stmt->bindValue(':id', $row['id']);
 $stmt->bindValue(':ai', $row['ai']);
