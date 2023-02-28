@@ -55,7 +55,6 @@ $open_ai->completion($opts, function ($curl_info, $data) use (&$txt) {
         error_log(json_encode($obj->error->message));
     } else {
         echo $data;
-        error_log($data);
         $clean = str_replace("data: ", "", $data);
         $arr = json_decode($clean, true);
         if ($data != "data: [DONE]\n\n" and $arr["choices"][0]["text"] != null) {
