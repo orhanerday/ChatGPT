@@ -103,17 +103,20 @@ function sendMsg(msg) {
     fetch('/send-message.php', {method: 'POST', body: formData})
         .then(response => response.json())
         .then(data => {
-            uuid = uuidv4()
-            var eventSource = new EventSource(`/event-stream.php?chat_history_id=${data.id}&id=${encodeURIComponent(USER_ID)}`);
+            let uuid = uuidv4()
+            const eventSource = new EventSource(`/event-stream.php?chat_history_id=${data.id}&id=${encodeURIComponent(USER_ID)}`);
             appendMessage(BOT_NAME, BOT_IMG, "left", "", uuid);
-            var div = document.getElementById(uuid);
+            const div = document.getElementById(uuid);
 
             eventSource.onmessage = function (e) {
                 if (e.data == "[DONE]") {
                     msgerSendBtn.disabled = false
                     eventSource.close();
                 } else {
-                    div.innerHTML += JSON.parse(e.data).choices[0].text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                    let txt = JSON.parse(e.data).choices[0].delta.content
+                    if (txt !== undefined) {
+                        div.innerHTML += txt.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                    }
                 }
             };
             eventSource.onerror = function (e) {
