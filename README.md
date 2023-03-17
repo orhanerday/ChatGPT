@@ -22,6 +22,12 @@ This project was created to highlight the [Stream Example](https://github.com/or
 
 <a href="https://www.buymeacoffee.com/orhane" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
+## Join our discord server
+
+![Discord Banner 2](https://discordapp.com/api/guilds/1047074572488417330/widget.png?style=banner2)
+
+[Click here to join the Discord server](https://discord.gg/xpGUD528XJ)
+
 ## Using Docker
 <hr>
 
