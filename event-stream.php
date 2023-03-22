@@ -10,21 +10,10 @@ const USER = "user";
 const SYS = "system";
 const ASSISTANT = "assistant";
 
-
-// Config
 $open_ai_key = getenv('OPENAI_API_KEY');
-$open_ai_model = getenv('OPENAI_MODEL') ?? 'gpt-3.5-turbo';
-$open_ai_temperature = floatval(getenv('OPENAI_TEMPERATURE') ?? '1.0');
-$open_ai_max_tokens = intval(getenv('OPENAI_MAX_TOKENS') ?? '100');
-$open_ai_frequency_penalty = floatval(getenv('OPENAI_FREQUENCY_PENALTY') ?? '0.0');
-$open_ai_presence_penalty = floatval(getenv('OPENAI_PRESENCE_PENALTY') ?? '0.0');
-$db_file = getenv('DB_FILE') ?? 'db.sqlite';
-
-
 $open_ai = new OpenAi($open_ai_key);
-
 // Open the SQLite database
-$db = new SQLite3($db_file);
+$db = new SQLite3('db.sqlite');
 
 $chat_history_id = $_GET['chat_history_id'];
 $id = $_GET['id'];
@@ -47,12 +36,12 @@ $msg = $result->fetchArray(SQLITE3_ASSOC)['human'];
 $history[] = [ROLE => USER, CONTENT => $msg];
 
 $opts = [
-    'model' => $open_ai_model,
+    'model' => 'gpt-3.5-turbo',
     'messages' => $history,
-    'temperature' => $open_ai_temperature,
-    'max_tokens' => $open_ai_max_tokens,
-    'frequency_penalty' => $open_ai_frequency_penalty,
-    'presence_penalty' => $open_ai_presence_penalty,
+    'temperature' => 1.0,
+    'max_tokens' => 100,
+    'frequency_penalty' => 0,
+    'presence_penalty' => 0,
     'stream' => true
 ];
 

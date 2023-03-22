@@ -1,14 +1,12 @@
 <?php
 
-$db_file = getenv('DB_FILE') ?? 'db.sqlite';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['user_id'];
     $msg = $_POST['msg'];
 
 
     // Create a new SQLite database connection
-    $db = new SQLite3($db_file);
+    $db = new SQLite3('db.sqlite');
     // Prepare the INSERT statement
     $stmt = $db->prepare('INSERT INTO main.chat_history (user_id, human) VALUES (:user_id, :human)');
 

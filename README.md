@@ -73,21 +73,6 @@ docker run -p 8000:8000 -e OPENAI_API_KEY=sk-o7hL4nCDcjw orhan55555/chatgpt
 http://localhost:8000
 <hr>
 
-
-## Configuration
-
-| Environment Variable       | Description                                                                                               | Default Value         |
-|----------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------|
-| `OPENAI_API_KEY`           | API key for the OpenAI API.                                                                               | None (required)       |
-| `OPENAI_MODEL`             | Name of the OpenAI model to use.                                                                          | `gpt-3.5-turbo`       |
-| `OPENAI_TEMPERATURE`       | Temperature value for generating text using the OpenAI API.                                               | `1.0`                 |
-| `OPENAI_MAX_TOKENS`        | Maximum number of tokens to generate when using the OpenAI API.                                           | `100`                 |
-| `OPENAI_FREQUENCY_PENALTY` | Frequency penalty value when generating text using the OpenAI API.                                        | `0.0`                 |
-| `OPENAI_PRESENCE_PENALTY`  | Presence penalty value when generating text using the OpenAI API.                                         | `0.0`                 |
-| `DB_FILE`                  | Path to the SQLite database file.                                                                         | `db.sqlite`           |
-
-
-
 ## Prerequisites
 Before running this project, you should have the following:
 
