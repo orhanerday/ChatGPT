@@ -28,6 +28,16 @@ This project was created to highlight the [Stream Example](https://github.com/or
 
 [Click here to join the Discord server](https://discord.gg/xpGUD528XJ)
 
+## GPT-4
+Change model at `event-stream.php`
+```php
+....
+$chat = $open_ai->chat([
+    'model' => 'gpt-4',
+
+....
+```
+
 ## Using Docker
 <hr>
 
