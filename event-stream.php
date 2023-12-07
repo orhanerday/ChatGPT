@@ -53,10 +53,15 @@ $complete = $open_ai->chat($opts, function ($curl_info, $data) use (&$txt) {
         error_log(json_encode($obj->error->message));
     } else {
         echo $data;
-        $clean = str_replace("data: ", "", $data);
-        $arr = json_decode($clean, true);
-        if ($data != "data: [DONE]\n\n" and isset($arr["choices"][0]["delta"]["content"])) {
-            $txt .= $arr["choices"][0]["delta"]["content"];
+        //error_log($data);
+        $results = explode('data: ', $data);
+        foreach ($results as $result) {
+            if ($result != '[DONE]') {
+                $arr = json_decode($result, true);
+                if (isset($arr["choices"][0]["delta"]["content"])) {
+                    $txt .= $arr["choices"][0]["delta"]["content"];
+                }
+            }
         }
     }
 
